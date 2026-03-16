@@ -10,9 +10,14 @@ function calcularRiesgo() {
     const colesterol = parseInt(document.getElementById('colesterol').value);
     const fumar = document.getElementById('fumador').value;
 
+    const li1 = document.createElement("li")
+    const li2 =document.createElement("li")
+    const li3 =document.createElement("li")
+
+
     let riesgo = 0;
     let valoracion = '';
-    if (edad === '' || edad < 0 || edad >120) {
+    if (!edad || edad < 0 || edad >120) {
         document.getElementById('textoResultado').textContent = 'No hay datos o datos validos en edad';
     }
     else if (!presion || presion > 250 || presion < 60) {
@@ -49,31 +54,28 @@ function calcularRiesgo() {
 
         if (fumar == 'si') {
             riesgo += 3;
+        }else{
+            riesgo +=0;
         }
 
         if (riesgo <= 2) {
             valoracion = 'Bajo riesgo'
             document.body.style.backgroundColor = "#00C201"
             document.getElementById('textoResultado').textContent = valoracion
-            recomendacion1 = '<li>Tome coca-cola</li>'
-            recomendacion2 = '<li>Meta Bazuco</li>'
-            recomendacion3 = '<li>Menos agua mas alcohol</li>'
+            
             document.getElementById('recomendaciones').append(recomendacion1,recomendacion2,recomendacion3)
         }else if(riesgo >5){
             valoracion = 'Riesgo Moderado'
             document.body.style.backgroundColor = "#F6F502"
             document.getElementById('textoResultado').textContent = valoracion
-            recomendacion1 = '<li>Dele a las grasas saturadas</li>'
-            recomendacion2 = '<li>Un Chicharroncito no hace daño</li>'
-            recomendacion3 = '<li>Limoncito con ron</li>'
+            
             document.getElementById('recomendaciones').append(recomendacion1,recomendacion2,recomendacion3)
         }else if(riesgo >5){
             valoracion = 'Riesgo Alto'
             document.body.style.backgroundColor = "#E92828"
             document.getElementById('textoResultado').textContent = valoracion
-            recomendacion1 = '<li>Diavlooooooo</li>'
-            recomendacion2 = '<li>El corazon ya no va a hacer tucun tucun</li>'
-            recomendacion3 = '<li>Mondongo</li>'
+            
+        
             document.getElementById('recomendaciones').append(recomendacion1,recomendacion2,recomendacion3)
         }
     }
@@ -87,5 +89,6 @@ function limpiarinput() {
     document.getElementById('colesterol').value ='';
     document.getElementById('fumador').value='';
     document.getElementById('textoResultado').textContent = '';
+    document.getElementById('recomendaciones').value=''
     document.body.style.backgroundColor = "rgb(250, 248, 243)";
 }
