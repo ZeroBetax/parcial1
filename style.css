@@ -4,3 +4,171 @@ Typografy
 David Alejandro Tabares
 
 */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+    font-family: Georgia, serif;
+}
+
+:root {
+    --text-base: 1rem;      /* 16px */
+    --text-md: 1.25rem;    /* H3 */
+    --text-lg: 1.5rem;   /* H2 */
+    --text-xl: 2.5rem;   /* H1 */
+    --color-dorado:#B8860B;
+    --color-azul:#2C3E50;
+    --color-morado:#4A0E8F;
+    --color-bronze:#8B4513;
+}
+
+body {
+    background-color: rgb(250, 248, 243);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100hv;
+}
+
+.contenedor{
+    max-width: 80vw;
+    min-width: 400px;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1{
+        text-align: center;
+        font-size: var(--text-xl);
+        letter-spacing: -0.05rem;
+        font-weight: 800;
+    }
+    
+    p{
+        padding: 10px;
+        max-width: 65ch;
+        line-height: 1.6;
+        font-size: var(--text-md);
+        font-weight: 600;
+    }
+}
+
+.formulario{
+
+    border-top: 5px solid var(--color-dorado);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 5%;
+    background-color: var(--color-azul);
+}
+
+.campo{
+    
+
+    label{
+        color: var(--color-dorado);
+        font-size: var(--text-base);
+        
+
+    }
+    input{
+        width: 100%;
+        font-size: var(--text-base);
+        padding: 5px 0px;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        border-bottom: 2px solid var(--color-dorado);
+        background-color: var(--color-azul);
+        color: var(--color-dorado);
+        
+    }
+    ::placeholder{
+        color: var(--color-dorado);
+    }
+    select{
+        width: 100%;
+        text-align: center;
+        border: 2px solid var(--color-dorado);
+        background-color: transparent;
+        color: var(--color-dorado);
+        text-transform: uppercase;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+
+        font-weight: 700;
+        font-size: .75rem;
+        line-height: 1rem;
+        letter-spacing: .1rem;
+    }
+
+}
+
+button{
+        width: 100%;
+        text-align: center;
+        border: 2px solid var(--color-dorado);
+        background-color: transparent;
+        color: var(--color-dorado);
+        text-transform: uppercase;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+
+        font-weight: 700;
+        font-size: .75rem;
+        line-height: 1rem;
+        letter-spacing: .1rem;
+}
+
+.resultado{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    margin: 10px;
+    font-size: var(--text-lg);
+
+    text-align: center;
+
+    h2{
+        font-weight: 600;
+    }
+
+    p{
+        max-width: 65ch;
+        padding: 10px;
+        line-height: 1.6;
+        font-size: var(--text-md);
+        font-weight: 600;
+
+    }
+}
+
+.nivel{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+
+    li{
+        list-style-type:square;
+        
+    }
+    
+    li::marker{
+        color: var(--color-dorado);
+    }
+}
