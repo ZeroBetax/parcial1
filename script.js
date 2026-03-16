@@ -3,6 +3,8 @@ document.querySelector('#btnCalcular').addEventListener("click", calcularRiesgo)
 document.querySelector('#btnLimpiar').addEventListener("click", limpiarinput);
 
 function calcularRiesgo() {
+
+    
     const edad = parseInt(document.getElementById('edad').value);
     const presion = parseInt(document.getElementById('presion').value);
     const colesterol = parseInt(document.getElementById('colesterol').value);
@@ -10,15 +12,15 @@ function calcularRiesgo() {
 
     let riesgo = 0;
     let valoracion = '';
-    if (!edad) {
-        document.getElementById('textoResultado').textContent = 'No hay datos en edad';
+    if (edad === '' || edad < 0 || edad >120) {
+        document.getElementById('textoResultado').textContent = 'No hay datos o datos validos en edad';
     }
-    else if (!presion) {
-        document.getElementById('textoResultado').textContent = 'No hay datos en presión sistólica';
+    else if (!presion || presion > 250 || presion < 60) {
+        document.getElementById('textoResultado').textContent = 'No hay datos oo datos validos en presión sistólica';
     }
-    else if (!colesterol) {
-        document.getElementById('textoResultado').textContent = 'No hay datos en colesterol';
-    }else if(!fumar){
+    else if (!colesterol || colesterol > 400 || colesterol < 100) {
+        document.getElementById('textoResultado').textContent = 'No hay datos o datos validos en colesterol';
+    }else if(fumar == null ||fumar == undefined){
         document.getElementById('textoResultado').textContent = 'No seleccionó un dato en Fumar';
 
     }
@@ -53,6 +55,26 @@ function calcularRiesgo() {
             valoracion = 'Bajo riesgo'
             document.body.style.backgroundColor = "#00C201"
             document.getElementById('textoResultado').textContent = valoracion
+            recomendacion1 = '<li>Tome coca-cola</li>'
+            recomendacion2 = '<li>Meta Bazuco</li>'
+            recomendacion3 = '<li>Menos agua mas alcohol</li>'
+            document.getElementById('recomendaciones').append(recomendacion1,recomendacion2,recomendacion3)
+        }else if(riesgo >5){
+            valoracion = 'Riesgo Moderado'
+            document.body.style.backgroundColor = "#F6F502"
+            document.getElementById('textoResultado').textContent = valoracion
+            recomendacion1 = '<li>Dele a las grasas saturadas</li>'
+            recomendacion2 = '<li>Un Chicharroncito no hace daño</li>'
+            recomendacion3 = '<li>Limoncito con ron</li>'
+            document.getElementById('recomendaciones').append(recomendacion1,recomendacion2,recomendacion3)
+        }else if(riesgo >5){
+            valoracion = 'Riesgo Alto'
+            document.body.style.backgroundColor = "#E92828"
+            document.getElementById('textoResultado').textContent = valoracion
+            recomendacion1 = '<li>Diavlooooooo</li>'
+            recomendacion2 = '<li>El corazon ya no va a hacer tucun tucun</li>'
+            recomendacion3 = '<li>Mondongo</li>'
+            document.getElementById('recomendaciones').append(recomendacion1,recomendacion2,recomendacion3)
         }
     }
 
@@ -64,4 +86,6 @@ function limpiarinput() {
     document.getElementById('presion').value ='';
     document.getElementById('colesterol').value ='';
     document.getElementById('fumador').value='';
+    document.getElementById('textoResultado').textContent = '';
+    document.body.style.backgroundColor = "rgb(250, 248, 243)";
 }
