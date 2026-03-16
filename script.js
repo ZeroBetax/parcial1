@@ -62,21 +62,26 @@ function calcularRiesgo() {
             valoracion = 'Bajo riesgo'
             document.body.style.backgroundColor = "#00C201"
             document.getElementById('textoResultado').textContent = valoracion
-            
-            document.getElementById('recomendaciones').append(recomendacion1,recomendacion2,recomendacion3)
-        }else if(riesgo >5){
+            li1.textContent = 'Waos'
+            li2.textContent = 'Waos'
+            li3.textContent = 'Waos'
+            document.getElementById('recomendaciones').append(li1,li2,li3)
+        }else if(riesgo <5){
             valoracion = 'Riesgo Moderado'
             document.body.style.backgroundColor = "#F6F502"
             document.getElementById('textoResultado').textContent = valoracion
-            
-            document.getElementById('recomendaciones').append(recomendacion1,recomendacion2,recomendacion3)
+            li1.textContent = 'Waos'
+            li2.textContent = 'Waos'
+            li3.textContent = 'Waos'
+            document.getElementById('recomendaciones').append(li1,li2,li3)
         }else if(riesgo >5){
             valoracion = 'Riesgo Alto'
             document.body.style.backgroundColor = "#E92828"
             document.getElementById('textoResultado').textContent = valoracion
-            
-        
-            document.getElementById('recomendaciones').append(recomendacion1,recomendacion2,recomendacion3)
+            li1.textContent = 'Waos'
+            li2.textContent = 'Waos'
+            li3.textContent = 'Waos'
+            document.getElementById('recomendaciones').append(li1,li2,li3)
         }
     }
 
